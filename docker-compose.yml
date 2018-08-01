@@ -5,6 +5,10 @@ services:
     container_name: ossec-log-server
     volumes:
       - ossec-log-server:/var/ossec/data
+    cap_drop:
+      - ALL
+    cap_add:
+      - NET_BIND_SERVICE
     ports:
       - 514:514/tcp
     environment:
