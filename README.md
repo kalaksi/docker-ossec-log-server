@@ -4,7 +4,7 @@
 - [GitHub repository](https://github.com/kalaksi/docker-ossec-log-server)
 
 ### What is this container for?
-This container is for running OSSEC HIDS log analysis server. It accepts syslog-formatted logs.  
+This container is for running OSSEC HIDS log analysis server and optionally sending alerts via email. It accepts syslog-formatted logs.  
 One use case is a centralized log archiving and analysis server for your containers (using e.g. Logspout).  
 
 ** Note: while fully functional and working, this container is still waiting these features to be implemented:  **
