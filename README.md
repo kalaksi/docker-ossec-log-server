@@ -10,6 +10,7 @@ One use case is a centralized log archiving and analysis server for your contain
 ** Note: while fully functional and working, this container is still waiting these features to be implemented:  **
 - Getting around ```ossec-contol``` and running the necessary process directly, which would help detecting if the process crashes.  
 - Dropping root privileges before executing (currently, ```ossec-control``` drops the privileges).
+- Test which capabilities can be dropped
 - Test and document ways to add custom configuration.
 
 ### Why use this container?
