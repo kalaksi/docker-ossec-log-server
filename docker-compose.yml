@@ -1,0 +1,25 @@
+version: 2
+services:
+  ossec-log-server:
+    image: kalaksi/ossec-log-server
+    container_name: ossec-log-server
+    volumes:
+      - ossec-log-server:/var/ossec/data
+    ports:
+      - 514:514/tcp
+    environment:
+      # Exclude from Logspout in case it is used to deliver logs to this container.
+      LOGSPOUT: ignore
+      OSSEC_EMAIL_NOTIFICATION: "no"
+      OSSEC_EMAIL_TO: root@yourdomain
+      OSSEC_EMAIL_FROM: ossecm@yourdomain
+      OSSEC_SMTP_SERVER: mailserver.yourdomain
+      OSSEC_ALLOWED_IPS: 10.0.0.0/8
+      OSSEC_SYSLOG_PROTOCOL: tcp
+    # Example labels you can use to control the container's IP and hostname (visible on emails) in Rancher.
+    # labels:
+    #   io.rancher.container.requested_ip: 10.42.23.92
+    #   io.rancher.container.hostname_override: container_name
+
+volumes:
+  ossec-log-server: {}
