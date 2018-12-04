@@ -1,6 +1,10 @@
 FROM debian:stretch-slim
 LABEL maintainer="kalaksi@users.noreply.github.com"
 
+# The package in the repository gets version updates quite often so I decided to have
+# some more control over so it's easier to see version changes between tags and builds.
+ARG OSSEC_VERSION=3.1.0.5732stretch
+
 ENV OSSEC_EMAIL_NOTIFICATION "no"
 ENV OSSEC_EMAIL_TO ""
 ENV OSSEC_EMAIL_FROM ""
@@ -36,7 +40,11 @@ RUN export DATA_DIRS="etc rules logs stats queue" && \
     for datadir in $DATA_DIRS; do \
         mv $datadir ${datadir}-template && \
         ln -s data/${datadir} $datadir; \
-    done
+    done; \
+    # Current version has a bug where this option is missing: https://github.com/ossec/ossec-hids/issues/1488
+    sed -ir 's/^# EOF/analysisd.geoip_jsonout=0\n#EOF/' etc-template/internal_options.conf && \
+    sed -ir 's/^maild.geoip=1/maild.geoip=0/' etc-template/internal_options.conf
+ 
 
 VOLUME "/var/ossec/data"
 EXPOSE 514/udp 514/tcp
