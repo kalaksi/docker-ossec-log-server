@@ -1,4 +1,5 @@
 FROM debian:stretch-slim
+LABEL maintainer="kalaksi@users.noreply.github.com"
 
 ENV OSSEC_EMAIL_NOTIFICATION "no"
 ENV OSSEC_EMAIL_TO ""
