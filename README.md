@@ -34,8 +34,8 @@ See the ```Tags``` tab on Docker Hub for specifics. Basically you have:
 See ```Dockerfile``` and ```docker-compose.yml``` (<https://github.com/kalaksi/docker-ossec-log-server>) for usable environment variables. Variables that are left empty will use default values.  
 
 #### Upgrading to a new version
-If you face any errors when upgrading, you should let the OSSEC server to create an updated configuration under the ```etc```-directory, so remove (or move aside) the existing one on your data-volume.  
-Remember to back up any manual changes you might have done.
+As OSSEC gets upgraded to a more recent version, your will face the common issue of configurations getting outdated.  
+In that case, you can try to resolve the configuration issues yourself and update the configuration OR move aside both ```etc``` and ```rules``` directories on your data-volume so that OSSEC will then create a new default configuration. After that, you can bring over any manual changes you might have done. 
 
 ### Development
 #### Design Goals
