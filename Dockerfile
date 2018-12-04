@@ -89,6 +89,9 @@ ENTRYPOINT set -eu; \
                  "</active-response>"\
                "</ossec_config>" > /var/ossec/etc/ossec.conf; \
           trap "/var/ossec/bin/ossec-control stop" INT TERM; \
+          # Testing configuration explicitly first provides much better error messages and
+          # ossec won't try to start needlessly
+          /var/ossec/bin/ossec-analysisd -t; \
           /var/ossec/bin/ossec-control start; \
           tail -f /var/ossec/logs/ossec.log & wait
 
