@@ -5,9 +5,9 @@
 
 ### What is this container for?
 This container is for running OSSEC HIDS log analysis server and optionally sending alerts via email. It accepts syslog-formatted logs.  
-One use case is a centralized log archiving and analysis server for your containers (using e.g. Logspout).  
+One use case is a centralized log archiving and analysis server for your containers. I currently use this container and [Logspout](https://github.com/gliderlabs/logspout) to achieve this.
 
-** Note: while fully functional and working, this container is still waiting these features to be implemented:  **
+** Note: while fully functional and working, this container is still waiting these features to be implemented. Any help is greatly appreciated!  **
 - Getting around ```ossec-contol``` and running the necessary process directly, which would help detecting if the process crashes.  
 - Dropping root privileges before executing (currently, ```ossec-control``` drops the privileges).
 - Test which capabilities can be dropped
