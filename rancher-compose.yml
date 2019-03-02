@@ -1,5 +1,0 @@
-version: '2'
-services:
-  ossec-log-server:
-    # In case you use Rancher and want to keep the container's IP when upgrading
-    retain_ip: true
