@@ -21,18 +21,18 @@ To remedy the situation, these images have been written with security and simpli
 |Official base image      |✅    | |
 |Drop extra CAPabilities  |❌    | TODO: test what can be dropped |
 |Handle signals properly  |✅    | |
-|Versioned tags           |✅    | |
-|Minimal                  |✅    | |
+|Versioned tags           |✅    | Offer versioned tags for stability.|
+|Simple                   |✅    | Keep everything in the Dockerfile if reasonable.|
 
-### Supported tags
+## Supported tags
 See the ```Tags``` tab on Docker Hub for specifics. Basically you have:
 - The default ```latest``` tag that always has the latest changes.
 - Minor versioned tags (follow Semantic Versioning), e.g. ```1.1``` which would follow branch ```1.1.x``` on GitHub.
 
-### Configuration
+## Configuration
 See ```Dockerfile``` and ```docker-compose.yml``` (<https://github.com/kalaksi/docker-ossec-log-server>) for usable environment variables. Variables that are left empty will use default values.  
 
-### Upgrading to a new version
+## Upgrading to a new version
 As OSSEC gets upgraded to a more recent version, your will face the common issue of configurations getting outdated.  
 In that case, you can try to resolve the configuration issues yourself and update the configuration OR move aside both ```etc``` and ```rules``` directories on your data-volume so that OSSEC will then create a new default configuration. After that, you can bring over any manual changes you might have done. 
 
@@ -40,15 +40,6 @@ In that case, you can try to resolve the configuration issues yourself and updat
 ### TODO 
 - Get around ```ossec-contol``` and run the necessary processes directly. Helps running things as non-root and for detecting crashes.
 - Test and document ways to add custom configuration.
-
-### Design Goals
-- Never run as root unless necessary.
-- Use only official base images.
-- Provide an example ```docker-compose.yml``` that also shows what CAPabilities can be dropped.
-- Offer versioned tags for stability.
-- Simple and minimal: try to keep everything in the Dockerfile if reasonable.
-- Don't restrict configuration possibilities: provide a way to use native config files for the containerized application.
-- Handle signals properly.
 
 ### Contributing
 See the repository on <https://github.com/kalaksi/docker-ossec-log-server>.
