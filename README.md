@@ -20,7 +20,7 @@ To remedy the situation, these images have been written with security and simpli
 |Don't run as root        |❌    | Difficult to get around. Currently ossec-control drops the privileges.|
 |Official base image      |✅    | |
 |Drop extra CAPabilities  |❌    | TODO: test what can be dropped |
-|Signals handled properly |✅    | |
+|Handle signals properly  |✅    | |
 |Versioned tags           |✅    | |
 |Minimal                  |✅    | |
 
