@@ -1,8 +1,8 @@
-version: 2
+version: '2'
 services:
   ossec-log-server:
     image: kalaksi/ossec-log-server
-    container_name: ossec-log-server
+    restart: unless-stopped
     volumes:
       - ossec-log-server:/var/ossec/data
     # TODO: test what other CAPs are needed
