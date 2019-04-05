@@ -19,7 +19,8 @@ services:
       OSSEC_EMAIL_TO: root@yourdomain
       OSSEC_EMAIL_FROM: ossecm@yourdomain
       OSSEC_SMTP_SERVER: mailserver.yourdomain
-      OSSEC_ALLOWED_IPS: 10.0.0.0/8
+      # Comma-separated list of allowed IPs / networks
+      OSSEC_ALLOWED_IPS: 10.0.0.0/8,172.17.0.0/16
       OSSEC_SYSLOG_PROTOCOL: tcp
 
 volumes:

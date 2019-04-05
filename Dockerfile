@@ -70,7 +70,7 @@ ENTRYPOINT set -eu; \
                  "</global>"\
                  "<remote>"\
                    "<connection>syslog</connection>"\
-                   "<allowed-ips>${OSSEC_ALLOWED_IPS}</allowed-ips>"\
+                   "<allowed-ips>$(echo $OSSEC_ALLOWED_IPS | sed 's|,|</allowed-ips><allowed-ips>|g')</allowed-ips>"\
                    "<protocol>${OSSEC_SYSLOG_PROTOCOL}</protocol>"\
                  "</remote>"\
                  "<alerts>"\
