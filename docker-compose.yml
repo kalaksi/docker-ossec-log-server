@@ -21,10 +21,6 @@ services:
       OSSEC_SMTP_SERVER: mailserver.yourdomain
       OSSEC_ALLOWED_IPS: 10.0.0.0/8
       OSSEC_SYSLOG_PROTOCOL: tcp
-    # Example labels you can use to control the container's IP and hostname (visible on emails) in Rancher.
-    # labels:
-    #   io.rancher.container.requested_ip: 10.42.99.99
-    #   io.rancher.container.hostname_override: container_name
 
 volumes:
   ossec-log-server: {}
