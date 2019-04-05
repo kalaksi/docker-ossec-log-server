@@ -3,7 +3,7 @@ LABEL maintainer="kalaksi@users.noreply.github.com"
 
 # The package in the repository gets version updates quite often so I decided to have
 # some more control over so it's easier to see version changes between tags and builds.
-ARG OSSEC_VERSION=3.1.0.5732stretch
+ARG OSSEC_VERSION=3.3.0.6515stretch
 
 ENV OSSEC_EMAIL_NOTIFICATION "no"
 ENV OSSEC_EMAIL_TO ""
@@ -23,7 +23,7 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-ins
     (wget -q -O- https://www.atomicorp.com/RPM-GPG-KEY.atomicorp.txt | apt-key add -) && \
     echo 'deb https://updates.atomicorp.com/channels/atomic/debian stretch main' > /etc/apt/sources.list.d/atomic.list && \
     apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
-      ossec-hids-server && \
+      ossec-hids-server=${OSSEC_VERSION} && \
     DEBIAN_FRONTEND=noninteractive apt-get autoremove --purge -y \
       apt-transport-https \
       ca-certificates \
