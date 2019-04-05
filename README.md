@@ -20,9 +20,10 @@ To remedy the situation, these images have been written with security and simpli
 |Don't run as root        |❌    | Difficult to get around. Currently ossec-control drops the privileges.|
 |Official base image      |✅    | |
 |Drop extra CAPabilities  |❌    | TODO: test what can be dropped |
-|Handle signals properly  |✅    | |
 |Versioned tags           |✅    | Offer versioned tags for stability.|
-|Simple                   |✅    | Keep everything in the Dockerfile if reasonable.|
+|No default passwords     |✅    | No static default passwords. That would make the container insecure by default.|
+|Handle signals properly  |✅    | |
+|Simple Dockerfile        |✅    | Keep everything in the Dockerfile if reasonable.|
 
 ## Supported tags
 See the ```Tags``` tab on Docker Hub for specifics. Basically you have:
