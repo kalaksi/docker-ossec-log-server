@@ -21,7 +21,8 @@ To remedy the situation, these images have been written with security and simpli
 |Official base image      |✅    | |
 |Drop extra CAPabilities  |❌    | TODO: test what can be dropped |
 |Versioned tags           |✅    | Offer versioned tags for stability.|
-|No default passwords     |✅    | No static default passwords. That would make the container insecure by default.|
+|No default passwords     |—      | (Not applicable) No static default passwords. That would make the container insecure by default. |
+|Support secrets-files    |—     | (Not applicable) Support providing e.g. passwords via files instead of environment variables. |
 |Handle signals properly  |✅    | |
 |Simple Dockerfile        |✅    | Keep everything in the Dockerfile if reasonable.|
 
