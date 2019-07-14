@@ -20,7 +20,10 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-ins
       procps \
       wget \
       gnupg2 && \
-    (wget -q -O- https://www.atomicorp.com/RPM-GPG-KEY.atomicorp.txt | apt-key add -) && \
+    (wget -q -O- "https://www.atomicorp.com/RPM-GPG-KEY.atomicorp.txt" | apt-key add -) && \
+    # OSSEC needs libssl1.0.0 which isn't available in stretch but is in jessie:
+    wget "http://security.debian.org/debian-security/pool/updates/main/o/openssl/libssl1.0.0_1.0.1t-1+deb8u11_amd64.deb" && \
+    dpkg -i "libssl1.0.0_1.0.1t-1+deb8u11_amd64.deb" && \
     echo 'deb https://updates.atomicorp.com/channels/atomic/debian stretch main' > /etc/apt/sources.list.d/atomic.list && \
     apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
       ossec-hids-server=${OSSEC_VERSION} && \
@@ -44,7 +47,7 @@ RUN export DATA_DIRS="etc rules logs stats queue" && \
     # Current version has a bug where this option is missing: https://github.com/ossec/ossec-hids/issues/1488
     sed -ir 's/^# EOF/analysisd.geoip_jsonout=0\n#EOF/' etc-template/internal_options.conf && \
     sed -ir 's/^maild.geoip=1/maild.geoip=0/' etc-template/internal_options.conf
- 
+
 
 VOLUME "/var/ossec/data"
 EXPOSE 514/udp 514/tcp
