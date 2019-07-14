@@ -14,16 +14,15 @@ ENV OSSEC_ALLOWED_IPS "10.0.0.0/8"
 ENV OSSEC_LOG_ALERT_LEVEL "1"
 ENV OSSEC_EMAIL_ALERT_LEVEL "7"
 
-RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+# OSSEC needs libssl1.0.0 which isn't available in stretch but is in jessie:
+RUN echo "deb http://deb.debian.org/debian-security/ jessie/updates main" >> /etc/apt/sources.list; \
+    apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
       apt-transport-https \
       ca-certificates \
       procps \
       wget \
       gnupg2 && \
     (wget -q -O- "https://www.atomicorp.com/RPM-GPG-KEY.atomicorp.txt" | apt-key add -) && \
-    # OSSEC needs libssl1.0.0 which isn't available in stretch but is in jessie:
-    wget "http://security.debian.org/debian-security/pool/updates/main/o/openssl/libssl1.0.0_1.0.1t-1+deb8u11_amd64.deb" && \
-    dpkg -i "libssl1.0.0_1.0.1t-1+deb8u11_amd64.deb" && \
     echo 'deb https://updates.atomicorp.com/channels/atomic/debian stretch main' > /etc/apt/sources.list.d/atomic.list && \
     apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
       ossec-hids-server=${OSSEC_VERSION} && \
