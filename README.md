@@ -13,7 +13,7 @@ This container is for running OSSEC HIDS log analysis server and optionally send
 Surprisingly, _many_ community containers run unnecessarily with root privileges by default and don't provide help for dropping unneeded CAPabilities either.
 Additionally, overly complex shell scripts and unofficial base images make it harder to verify the source and keep everything up-to-date.  
 
-To remedy the situation, these images have been written with security and simplicity in mind.  
+To remedy the situation, these images have been written with security, simplicity and overall quality in mind.
 
 |Requirement              |Status|Details|
 |-------------------------|:----:|-------|
@@ -21,8 +21,8 @@ To remedy the situation, these images have been written with security and simpli
 |Official base image      |✅    | |
 |Drop extra CAPabilities  |❌    | TODO: test what can be dropped |
 |Versioned tags           |✅    | Offer versioned tags for stability.|
-|No default passwords     |—      | (Not applicable) No static default passwords. That would make the container insecure by default. |
-|Support secrets-files    |—     | (Not applicable) Support providing e.g. passwords via files instead of environment variables. |
+|No default passwords     |✅    | No static default passwords. That would make the container insecure by default. |
+|Support secrets-files    |✅    | Support providing e.g. passwords via files instead of environment variables. |
 |Handle signals properly  |✅    | |
 |Simple Dockerfile        |✅    | Keep everything in the Dockerfile if reasonable.|
 
