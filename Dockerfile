@@ -1,4 +1,4 @@
-FROM debian:stretch-slim
+FROM debian:9.11-slim
 LABEL maintainer="kalaksi@users.noreply.github.com"
 
 # The package in the repository gets version updates quite often so setting it explicitly in ARG
