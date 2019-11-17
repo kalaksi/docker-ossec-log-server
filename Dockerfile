@@ -14,9 +14,7 @@ ENV OSSEC_ALLOWED_IPS "10.0.0.0/8"
 ENV OSSEC_LOG_ALERT_LEVEL "1"
 ENV OSSEC_EMAIL_ALERT_LEVEL "7"
 
-# OSSEC needs libssl1.0.0 which isn't available in stretch but is in jessie:
-RUN echo "deb http://deb.debian.org/debian-security/ jessie/updates main" >> /etc/apt/sources.list; \
-    apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
       apt-transport-https \
       ca-certificates \
       procps \
