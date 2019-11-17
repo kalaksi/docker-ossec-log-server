@@ -18,6 +18,8 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-ins
       apt-transport-https \
       ca-certificates \
       procps \
+      # netbase is needed for mail delivery to work properly
+      netbase \
       wget \
       gnupg2 && \
     (wget -q -O- "https://www.atomicorp.com/RPM-GPG-KEY.atomicorp.txt" | apt-key add -) && \
