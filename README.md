@@ -1,6 +1,6 @@
 
 ## Repositories
-- [Docker Hub repository](https://registry.hub.docker.com/u/kalaksi/ossec-log-server/)
+- [Docker Hub repository](https://hub.docker.com/r/kalaksi/ossec-log-server/)
 - [GitHub repository](https://github.com/kalaksi/docker-ossec-log-server)
 
 ## What is this container for?
