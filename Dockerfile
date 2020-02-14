@@ -6,7 +6,7 @@ LABEL maintainer="kalaksi@users.noreply.github.com"
 
 # The package in the repository gets version updates quite often so setting it explicitly in ARG
 # variable helps with controlling changes and visibility of version history.
-ARG OSSEC_VERSION=3.5.0-9609stretch
+ARG OSSEC_VERSION=3.5.0-10635stretch
 
 ENV OSSEC_EMAIL_NOTIFICATION "no"
 ENV OSSEC_EMAIL_TO ""
