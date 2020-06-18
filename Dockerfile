@@ -1,12 +1,12 @@
 # Copyright (c) 2018 kalaksi@users.noreply.github.com.
 # This work is licensed under the terms of the MIT license. For a copy, see <https://opensource.org/licenses/MIT>.
 
-FROM debian:9.11-slim
+FROM debian:10.4-slim
 LABEL maintainer="kalaksi@users.noreply.github.com"
 
 # The package in the repository gets version updates quite often so setting it explicitly in ARG
 # variable helps with controlling changes and visibility of version history.
-ARG OSSEC_VERSION=3.5.0-10635stretch
+ARG OSSEC_VERSION=3.6.0-12034buster
 
 ENV OSSEC_EMAIL_NOTIFICATION "no"
 ENV OSSEC_EMAIL_TO ""
@@ -26,7 +26,7 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-ins
       wget \
       gnupg2 && \
     (wget -q -O- "https://www.atomicorp.com/RPM-GPG-KEY.atomicorp.txt" | apt-key add -) && \
-    echo 'deb https://updates.atomicorp.com/channels/atomic/debian stretch main' > /etc/apt/sources.list.d/atomic.list && \
+    echo 'deb https://updates.atomicorp.com/channels/atomic/debian buster main' > /etc/apt/sources.list.d/atomic.list && \
     apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
       ossec-hids-server=${OSSEC_VERSION} && \
     DEBIAN_FRONTEND=noninteractive apt-get autoremove --purge -y \
