@@ -1,12 +1,12 @@
 # Copyright (c) 2018 kalaksi@users.noreply.github.com.
 # This work is licensed under the terms of the MIT license. For a copy, see <https://opensource.org/licenses/MIT>.
 
-FROM debian:10.5-slim
+FROM debian:10.6-slim
 LABEL maintainer="kalaksi@users.noreply.github.com"
 
 # The package in the repository gets version updates quite often so setting it explicitly in ARG
 # variable helps with controlling changes and visibility of version history.
-ARG OSSEC_VERSION=3.6.0-12034buster
+ARG OSSEC_VERSION=3.6.0-14954buster
 
 ENV OSSEC_EMAIL_NOTIFICATION "no"
 ENV OSSEC_EMAIL_TO ""
