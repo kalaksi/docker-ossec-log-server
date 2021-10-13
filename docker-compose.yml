@@ -1,7 +1,9 @@
 version: '2'
 services:
   ossec-log-server:
-    image: kalaksi/ossec-log-server
+    image: docker.io/kalaksi/ossec-log-server
+    # You can also use GitLab as an alternative to Docker Hub:
+    # image: registry.gitlab.com/kalaksi-containers/ossec-log-server
     restart: unless-stopped
     volumes:
       - ossec-log-server:/var/ossec/data

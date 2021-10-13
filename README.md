@@ -1,6 +1,7 @@
 
 ## Repositories
-- [Docker Hub repository](https://hub.docker.com/r/kalaksi/ossec-log-server/)
+- [GitLab repository](https://gitlab.com/kalaksi-containers/ossec-log-server/) (image: `registry.gitlab.com/kalaksi-containers/ossec-log-server`)
+- [Docker Hub repository](https://hub.docker.com/r/kalaksi/ossec-log-server/) (image: `docker.io/kalaksi/ossec-log-server`)
 - [GitHub repository](https://github.com/kalaksi/docker-ossec-log-server)
 
 ## What is this container for?
@@ -15,16 +16,17 @@ Additionally, overly complex shell scripts and unofficial base images make it ha
 
 To remedy the situation, these images have been written with security, simplicity and overall quality in mind.
 
-|Requirement              |Status|Details|
-|-------------------------|:----:|-------|
-|Don't run as root        |❌    | Difficult to get around. Currently ossec-control drops the privileges.|
-|Official base image      |✅    | |
-|Drop extra CAPabilities  |❌    | TODO: test what can be dropped |
-|No default passwords     |✅    | No static default passwords. That would make the container insecure by default. |
-|Support secrets-files    |✅    | Support providing e.g. passwords via files instead of environment variables. |
-|Handle signals properly  |✅    | |
-|Simple Dockerfile        |✅    | No overextending the container's responsibilities. Keep everything in the Dockerfile if reasonable. |
-|Versioned tags           |✅    | Offer versioned tags for stability.|
+|Requirement                |Status|Details|
+|---------------------------|:----:|-------|
+|Don't run as root          |❌    | Difficult to get around. Currently ossec-control drops the privileges.|
+|Transparent build process  |✅    | For verifying that the container matches the code. See GitLab CI. |
+|Official base image        |✅    | |
+|Drop extra CAPabilities    |❌    | TODO: test what can be dropped |
+|No default passwords       |✅    | No static default passwords. That would make the container insecure by default. |
+|Support secrets-files      |✅    | Support providing e.g. passwords via files instead of environment variables. |
+|Handle signals properly    |✅    | |
+|Simple Dockerfile          |✅    | No overextending the container's responsibilities. Keep everything in the Dockerfile if reasonable. |
+|Versioned tags             |✅    | Offer versioned tags for stability.|
 
 ## Supported tags
 See the ```Tags``` tab on Docker Hub for specifics. Basically you have:
